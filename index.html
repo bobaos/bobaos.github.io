@@ -104,23 +104,20 @@
   sw();
 });
 </code></pre></figure>
-<p>In few words, you will be able to work with communication objects: datapoints.</p>
+<p>In a few words, you will be able to work with communication objects: datapoints.</p>
 
 <h1>Installing</h1>
 
 <ol>
-<li>Install latest Raspbian image on sd card.</li>
-<li>Setup Raspberry Pi UART: <a href="https://github.com/weinzierl-engineering/baos/blob/master/docs/Raspbian.adoc#kberry">doc</a>.</li>
-<li>Connect the Weinzierl kBerry BAOS Module with the Raspberry PI.</li>
-<li>Install <code>nodejs &gt;= 8, npm, node-gyp, build-essential, git</code>.</li>
-<li>Install <code>bdsd.sock, bdsd-cli</code>:</li>
-</ol>
+<li><p>Install latest Raspbian image on sd card.</p></li>
+<li><p>Setup Raspberry Pi UART: <a href="https://github.com/weinzierl-engineering/baos/blob/master/docs/Raspbian.adoc#kberry">doc</a>.</p></li>
+<li><p>Connect the Weinzierl kBerry BAOS Module with the Raspberry PI.</p></li>
+<li><p>Install <code>nodejs &gt;= 8, npm, node-gyp, build-essential, git</code>.</p></li>
+<li><p>Install <code>bdsd.sock, bdsd-cli</code>:</p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">sudo npm install -g bdsd.sock --unsafe-perm
 sudo npm install -g bdsd-cli --unsafe-perm
-</code></pre></figure>
-<ol>
-<li>Run and test it:</li>
-</ol>
+</code></pre></figure></li>
+<li><p>Run and test it:</p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">bdsd.sock
 ...
 IPC: Listening at  /run/user/1000/bdsd.sock
@@ -131,20 +128,17 @@ BAOS: connected to baos
 connected
 bobaos&gt; getDatapoints
 [{id: 1, dpt: ...}]
-</code></pre></figure>
-<ol>
-<li>Configure your device in ETS as KNX BAOS 830 application. Download application.</li>
-</ol>
+</code></pre></figure></li>
+<li><p>Configure your device in ETS as KNX BAOS 830 application. Download application.</p>
 
 <p>To download physical address you have to press programming button. Instead, you may use bdsd-cli:</p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">bdsd-cli
 connected
 bobaos&gt; setProgramminMode -v 1
 Set programming mode: success
-</code></pre></figure>
-<ol>
-<li>...</li>
-<li>PROFIT</li>
+</code></pre></figure></li>
+<li><p>...</p></li>
+<li><p>PROFIT</p></li>
 </ol>
 
   </div>

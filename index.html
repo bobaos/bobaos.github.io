@@ -29,13 +29,6 @@
         <div class="posts">
           <ul class="posts-list">
             
-              <li class="post-link">
-                <a class="post-title" href="/posts/2018/01/02/example-post.html">
-<!--                  <span class="post-date">02 Jan 2018</span> -->
-                  Hello, friend
-                </a>
-              </li>
-            
           </ul>
         </div>
         <div class="footer">
@@ -53,104 +46,19 @@
   </div>
   <div id="post-info">
     <div id="cover-photo-container">
-      <img id="cover-photo" src="/images/0x00_cover.jpeg">
+      <img id="cover-photo" src="/images/">
     </div>
     <div id="info-container">
-      <h1 id="title">Hello, friend</h1>
+      <h1 id="title"></h1>
     </div>
   </div>
 
   <div class="post">
-    <h2>Introducing</h2>
-
-<p>Bobaos-project is a minimalist, fast SDK to work with KNX bus. It is based on Raspberry Pi computer and <a href="https://weinzierl.de/index.php/en/all-knx/knx-module-en/knx-baos-module-838-en">Weinzierl KNX BAOS 838 module kBerry</a>. All SDK client features can be listed in following example:</p>
-<figure class="highlight"><pre><code class="language-js" data-lang="js">myClient.on(&#39;connect&#39;, _ =&gt; {
-  console.log(&#39;client connected&#39;);
-  // get all dpts
-  myClient
-    .getDatapoints()
-    .then(payload =&gt; {
-      console.log(&#39;All configured datapoints:&#39;);
-      payload.forEach(t =&gt; {
-        let f = t.flags;
-        let output = `#${t.id} [${t.dpt}], priority: ${f.priority}, flags:`;
-        output += `${f.communication ? &#39;C&#39; : &#39;_&#39;}${f.read ? &#39;R&#39; : &#39;_&#39;}`;
-        output += `${f.write ? &#39;W&#39; : &#39;_&#39;}${f.transmit ? &#39;T&#39; : &#39;_&#39;}`;
-        console.log(output);
-        // send readRequests. should have update flag configured
-        if (f.update) {
-          myClient
-            .readValue(t.id)
-            .catch(console.log);
-        }
-      });
-    });
-
-  // invert datapoint value every ~second
-  let sw = _ =&gt; {
-    myClient
-      .getValue(9)
-      .then(payload =&gt; {
-        myClient
-          .setValue(payload.id, !payload.value)
-          .then(_ =&gt; {
-            console.log(`switching datapoint ${payload.id} to ${!payload.value} successful`);
-            setTimeout(sw, 1000);
-          })
-          .catch(console.log);
-      })
-      .catch(console.log);
-  };
-  sw();
-});
-</code></pre></figure>
-<p>In few words, you will be able to work with communication objects: datapoints.</p>
-
-<h1>Installing</h1>
-
-<ol>
-<li>Install latest Raspbian image on sd card.</li>
-<li>Setup Raspberry Pi UART: <a href="https://github.com/weinzierl-engineering/baos/blob/master/docs/Raspbian.adoc#kberry">doc</a>.</li>
-<li>Connect the Weinzierl kBerry BAOS Module with the Raspberry PI.</li>
-<li>Install <code>nodejs &gt;= 8, npm, node-gyp, build-essential, git</code>.</li>
-<li>Install <code>bdsd.sock, bdsd-cli</code>:</li>
-</ol>
-<figure class="highlight"><pre><code class="language-text" data-lang="text">sudo npm install -g bdsd.sock --unsafe-perm
-sudo npm install -g bdsd-cli --unsafe-perm
-</code></pre></figure>
-<ol>
-<li>Run and test it:</li>
-</ol>
-<figure class="highlight"><pre><code class="language-text" data-lang="text">bdsd.sock
-...
-IPC: Listening at  /run/user/1000/bdsd.sock
-BAOS: connected to baos
-</code></pre></figure>
-<p>In other ssh session test it:</p>
-<figure class="highlight"><pre><code class="language-text" data-lang="text">bdsd-cli
-connected
-bobaos&gt; getDatapoints
-[{id: 1, dpt: ...}]
-</code></pre></figure>
-<ol>
-<li>Configure your device in ETS as KNX BAOS 830 application. Download application.</li>
-</ol>
-
-<p>To download physical address you have to press programming button. Instead, you may use bdsd-cli:</p>
-<figure class="highlight"><pre><code class="language-text" data-lang="text">bdsd-cli
-connected
-bobaos&gt; setProgramminMode -v 1
-Set programming mode: success
-</code></pre></figure>
-<ol>
-<li>...</li>
-<li>PROFIT</li>
-</ol>
-
+    
   </div>
   <div class="colophon">
     <p>
-      <span id="pub-date">Published on 02 Jan 2018</span> <span class="separator">&bull;</span>
+      <span id="pub-date">Published on </span> <span class="separator">&bull;</span>
     </p>
   </div>
 </div>
